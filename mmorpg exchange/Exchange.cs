@@ -25,6 +25,7 @@ public class Exchange
             if (query.Any())
             {
                 Console.WriteLine($"Order match found.");
+                CancelOrder(query.ElementAt(0));
             }
         }
         
@@ -36,22 +37,4 @@ public class Exchange
     {
         _exchangeOrders.Remove(order);
     }
-}
-
-public struct ExchangeOrder
-{
-    public bool IsBuyOrder;
-
-    public Item Item;
-    public int Limit;
-    public Dictionary<CurrencyItem, int> CurrencyLimits;
-
-    public int Quantity;
-    public DateTime PostTime;
-    public IExchangeUser Owner;
-}
-
-public interface IExchangeUser
-{
-    
 }
