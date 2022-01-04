@@ -21,11 +21,10 @@ public class Exchange
                 orderby postedOrder.PostTime.Day ascending,
                     postedOrder.PostTime.TimeOfDay ascending
                 select postedOrder;
-
-            if (query.Any())
+            
+            if (query.Any() && order.Quantity > 0)
             {
-                Console.WriteLine($"Order match found.");
-                CancelOrder(query.ElementAt(0));
+
             }
         }
         
